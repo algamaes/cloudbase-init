@@ -14,7 +14,6 @@
 """Metadata Service for Packet."""
 
 import json
-import requests
 
 from cloudbaseinit import conf as cloudbaseinit_conf
 from cloudbaseinit import exception
@@ -91,6 +90,7 @@ class PacketService(base.BaseHTTPMetadataService):
         return self._get_meta_data().get("phone_home_url")
 
     def get_user_pwd_encryption_key(self):
+        import requests
         phone_home_url = self._get_phone_home_url()
         key_url = requests.compat.urljoin('%s/' % phone_home_url, "key")
         return self._get_cache_data(key_url, decode=True)

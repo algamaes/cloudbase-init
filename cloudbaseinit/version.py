@@ -17,7 +17,6 @@ import threading
 
 from oslo_log import log as oslo_logging
 import pbr.version
-import requests
 import six
 
 
@@ -29,6 +28,7 @@ LOG = oslo_logging.getLogger(__name__)
 def _read_url(url):
     # Disable certificate verification on Python 2 as
     # requests' CA list is incomplete. Works fine on Python3.
+    import requests
     req = requests.get(url, verify=six.PY3,
                        headers={'User-Agent': _PRODUCT_NAME})
     req.raise_for_status()

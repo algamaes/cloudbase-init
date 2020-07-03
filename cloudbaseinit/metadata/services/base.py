@@ -20,7 +20,6 @@ import io
 import time
 
 from oslo_log import log as oslo_logging
-import requests
 import six
 
 from cloudbaseinit import conf as cloudbaseinit_conf
@@ -288,6 +287,7 @@ class BaseHTTPMetadataService(BaseMetadataService):
         self._https_allow_insecure = https_allow_insecure
         self._https_ca_bundle = https_ca_bundle
         self._base_url = base_url
+        import requests
 
     def _verify_https_request(self):
         """Whether to disable the validation of HTTPS certificates.
