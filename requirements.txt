@@ -10,7 +10,6 @@ Babel>=1.3
 oauthlib
 netifaces
 PyYAML
-requests
 untangle==1.1.1
 jinja2
 pywin32;sys_platform=="win32"
